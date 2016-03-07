@@ -5,4 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
 </head>
+<body>
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<%= link_to "RUBY MINI CMS", '#', id: "logo" %>
+			<nav>
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to "Help", help_path %></li>
+					<li><%= link_to "Login", 'login_path' %></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
