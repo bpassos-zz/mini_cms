@@ -1,9 +1,15 @@
 <%= render "layouts/header" %>
 
-	<div class="container">
-		<%= yield %>
-		<%= render "layouts/footer" %>
-	</div>
+  <div class="container">
+    <%= yield %>
+    <%= render "layouts/footer" %>
+
+    <!-- 
+         This is a debugging tool only running in development environment 
+         params is a YAML representation (hash) in this case identifies the controller and action for the page
+    -->
+    <%= debug(params) if Rails.env.development? %>
+  </div>
 
 
 
