@@ -1,7 +1,8 @@
 
 <img
   src="/icon/mini_CMS_icon.png"
-  width="90"
+  width="120"
+  align="middle"
 />
 
 # Mini CMS
