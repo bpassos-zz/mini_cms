@@ -1,6 +1,7 @@
 
 <img
   src="/icon/mini_CMS_icon.png"
+  width="90"
 />
 
 # Mini CMS
