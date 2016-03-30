@@ -55,5 +55,8 @@ group :production do
   gem 'pg', '~>0.17.1'
   # Gem used by Heroku to serve static assets such as images and stylesheets
   gem 'rails_12factor', '0.0.2'
+
+  # By default Heroku uses WEBrick webserver but it isnt good for handling significant traffic. So puma is better.
+  gem 'puma', '3.1.0'
 end
 
