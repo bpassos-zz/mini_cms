@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) # Not the final implementation!
     if @user.save
+      # Log user in automatically after registration
+      log_in @user
       # Hangle a successful save.
       flash[:success] = "Welcome to the Mini CMS"
       redirect_to @user
