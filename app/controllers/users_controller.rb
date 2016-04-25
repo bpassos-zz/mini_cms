@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  # Only edit or update if user is logged in
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
+  
   def show
     # Defining @user variable in the corresponding show action
     # Technically, params[:id] is the string "1" but find is smart enough to covert it to an integer.
@@ -28,6 +32,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private # This is only used internaly by the User Controller
 
     def user_params
@@ -36,5 +50,18 @@ class UsersController < ApplicationController
         :email, 
         :password, 
         :password_confirmation)
+    end
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in"
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end
