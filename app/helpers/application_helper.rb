@@ -12,10 +12,10 @@ module ApplicationHelper
 
     # Returns user name spliter
     def first_name(user)
-      user.name.split(" ")[0..-2].join(" ")
+      user.name.split(" ")[0..-2].join(" ") if user
     end
 
     def last_name(user)
-      user.name.split(" ").last
+      user.name.split(" ").last if user
     end
 end
