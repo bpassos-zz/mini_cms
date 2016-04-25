@@ -1,6 +1,9 @@
 <div class="center jumbotron">
-	<h1>Welcome to the Mini CMS</h1>
-	<h2></h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  Olá <%= first_name(current_user) || "Visitante" %>
+<% if logged_in? %>
+  <h2>Welcome back, <%= first_name(current_user) || "Visitante" %></h2>
+  <% else %>
+    <h1>Welcome to the Mini CMS</h1>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
+
